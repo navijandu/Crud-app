@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quize Game </title>
+    <meta charset="utf-8">
+    <!--Add jquery/ JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <!--Add Bootstrap-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--Link the files -->
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/jason.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid text-center title">
+        <h1 class="ml3">Hello Welcome to my World </h1>
+    </div>
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">First Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Age">Age</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="Age" name="age" placeholder="Your Age please..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Sex">Gender</label>
+                </div>
+                <div class="col-75">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label><br>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="subject">Subject</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="button" id="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <div class="result">
+        <table>
+            <tr>
+                <th>Seril No.</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td id="sNo"></td>
+                <td id="resultF">
+                </td>
+                <td id="resultL">
+                </td>
+                <td id="age">
+                </td>
+                <td id="gender"></td>
+                <td id="dlt">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+</body></html>
