@@ -66,6 +66,16 @@ $(document).ready(function () {
             easing: "easeOutExpo",
             delay: 1000
         });
+    $("#submit-m").click(function () {
+        var d = $(this).attr("editid")
+        var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+        existingEntries[d].title = $("#fname-m").val()
+        existingEntries[d].text = $("#lname-m").val()
+        existingEntries[d].Age = $("#Age-m").val()
+        existingEntries[d].gender = $("input:radio[name=gender-m]:checked").val()
+        localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+        location.reload();
+    });
 
 
 
@@ -84,7 +94,6 @@ function edit(w) {
     $("#editModal")
     var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
     var place = $(w).parent().parent().attr("id");
-    console.log(place)
     $("#submit-m").addClass("edit")
     $("#submit-m").attr("editid", place)
     for (i = 0; i < existingEntries.length; i++) {
@@ -96,16 +105,3 @@ function edit(w) {
         }
     }
 }
-$("#submit-m").click(function () {
-    var d = $(this).attr("editid")
-    console.log(d)
-    var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-    existingEntries[d].title = $("#fname-m").val()
-    existingEntries[d].text = $("#lname-m").val()
-    existingEntries[d].Age = $("#Age-m").val()
-    existingEntries[d].gender = $("input:radio[name=gender-m]:checked").val()
-    localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-    location.reload();
-
-
-})
