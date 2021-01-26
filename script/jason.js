@@ -20,39 +20,28 @@ $(document).ready(function () {
     }
     // click button to push the new entry to database
     $("#submit").click(function () {
-        if ($(this).hasClass("edit")) {
 
-            var d = $(this).attr("editid")
-            var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-            existingEntries[d].title = $("#fname-m").val()
-            existingEntries[d].text = $("#lname-m").val()
-            existingEntries[d].Age = $("#Age-m").val()
-            existingEntries[d].gender = $("input:radio[name=gender-m]:checked").val()
-            localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-            location.reload();
+        if (existingEntries == null) existingEntries = [];
+        var fname = $("#fname").val()
+        var lname = $("#lname").val()
+        var age = $("#Age").val()
+        var sex = $("input:radio[name=gender]:checked").val()
 
-        } else {
-            if (existingEntries == null) existingEntries = [];
-            var fname = $("#fname").val()
-            var lname = $("#lname").val()
-            var age = $("#Age").val()
-            var sex = $("input:radio[name=gender]:checked").val()
+        var entry = {
+            "title": fname,
+            "text": lname,
+            "Age": age,
+            "gender": sex
+        };
 
-            var entry = {
-                "title": fname,
-                "text": lname,
-                "Age": age,
-                "gender": sex
-            };
+        //localStorage.setItem("entry", JSON.stringify(entry));
+        // Save allEntries back to local storage
+        existingEntries.push(entry);
+        localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+        /* appending to table */
+        //    $("#resultF").append("<tr><td>'+ sNo +'</td><td>" + fname + "</td><td>" + lname + "</td><td>" + age + "</td></tr>");
+        location.reload();
 
-            localStorage.setItem("entry", JSON.stringify(entry));
-            // Save allEntries back to local storage
-            existingEntries.push(entry);
-            localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-            /* appending to table */
-            //    $("#resultF").append("<tr><td>'+ sNo +'</td><td>" + fname + "</td><td>" + lname + "</td><td>" + age + "</td></tr>");
-            location.reload();
-        }
     });
 
 
@@ -92,10 +81,10 @@ function delet(e) {
 };
 
 function edit(w) {
-$("#editModal")
+    $("#editModal")
     var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
     var place = $(w).parent().parent().attr("id");
-console.log(place)
+    console.log(place)
     $("#submit-m").addClass("edit")
     $("#submit-m").attr("editid", place)
     for (i = 0; i < existingEntries.length; i++) {
@@ -107,3 +96,16 @@ console.log(place)
         }
     }
 }
+$("#submit-m").click(function () {
+    var d = $(this).attr("editid")
+    console.log(d)
+    var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+    existingEntries[d].title = $("#fname-m").val()
+    existingEntries[d].text = $("#lname-m").val()
+    existingEntries[d].Age = $("#Age-m").val()
+    existingEntries[d].gender = $("input:radio[name=gender-m]:checked").val()
+    localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+    location.reload();
+
+
+})
