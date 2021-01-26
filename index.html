@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Quize Game </title>
     <meta charset="utf-8">
@@ -18,40 +18,43 @@
 </head>
 
 <body>
-    <div class="container-fluid text-center title">
+     <div class="container-fluid text-center title">
         <h1 class="ml3">Hello Welcome to my World </h1>
     </div>
-    <div class="container">
-        <form>
+
+<div class="container content">
+<div class="row">
+<div class="col-md-6">
+<form>
             <div class="row">
-                <div class="col-25">
+                <div class="col-md-2">
                     <label for="fname">First Name</label>
                 </div>
-                <div class="col-75">
-                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
                 </div>
             </div>
             <div class="row">
-                <div class="col-25">
+                <div class="col-md-2">
                     <label for="lname">Last Name</label>
                 </div>
-                <div class="col-75">
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
                 </div>
             </div>
             <div class="row">
-                <div class="col-25">
+                <div class="col-md-2">
                     <label for="Age">Age</label>
                 </div>
-                <div class="col-75">
-                    <input type="text" id="Age" name="age" placeholder="Your Age please..">
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="Age" name="age" placeholder="Your Age please.." required>
                 </div>
             </div>
             <div class="row">
-                <div class="col-25">
+                <div class="col-md-2">
                     <label for="Sex">Gender</label>
                 </div>
-                <div class="col-75">
+                <div class="col-sm-12 col-md-10">
                     <input type="radio" id="male" name="gender" value="male">
                     <label for="male">Male</label><br>
                     <input type="radio" id="female" name="gender" value="female">
@@ -59,21 +62,101 @@
 
                 </div>
             </div>
+            
             <div class="row">
-                <div class="col-25">
-                    <label for="subject">Subject</label>
+		<div class="col-md-12">
+                	<input type="button" class="btn btn-success" id="submit" value="Submit">
+</div>            
+</div>
+</form>
+</div>
+
+</div>
+</div>
+
+<!--modal--> 
+  
+<div class="container">
+
+  <!-- Button to Open the Modal -->
+
+
+  <!-- The Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Content</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         <form>
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="fname">First Name</label>
                 </div>
-                <div class="col-75">
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="fname-m" name="firstname" placeholder="Your name..">
                 </div>
             </div>
             <div class="row">
-                <input type="button" id="submit" value="Submit">
+                <div class="col-md-2">
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="lname-m" name="lastname" placeholder="Your last name..">
+                </div>
             </div>
-        </form>
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="Age">Age</label>
+                </div>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="Age-m" name="age" placeholder="Your Age please..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="Sex">Gender</label>
+                </div>
+                <div class="col-sm-12 col-md-10 ">
+                    <input type="radio" id="male" name="gender-m" value="male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender-m" value="female">
+                    <label for="female">Female</label><br>
+
+                </div>
+            </div>
+           
+            <div class="row">
+<div class="col-md-12">
+                <input type="button" id="submit-m" value="Save Chnages">
+</div>
+            </div>
+        </form>     
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
     </div>
-    <div class="result">
-        <table>
+  </div>
+  
+</div>
+
+
+<!--result--> 
+    <div class="conatiner result">
+<div class="row">
+<div class="col-md-12">
+        <table class="table">
             <tr>
                 <th>Seril No.</th>
                 <th>Firstname</th>
@@ -95,6 +178,8 @@
                 </td>
             </tr>
         </table>
+</div>
+</div>
     </div>
 
 

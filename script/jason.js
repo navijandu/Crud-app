@@ -14,19 +14,20 @@ $(document).ready(function () {
             $("#age").append("<tr><td>" + existingEntries[i].Age + "</td></tr>");
             $("#gender").append("<tr><td>" + existingEntries[i].gender + "</td></tr>");
 
-            $("#dlt").append("<tr id=" + i + "><td><Button id='dltButton' onClick='delet(this)'>Delet</button><Button id='editButton' onClick='edit(this)'>Edit</button></td></tr>");
+            $("#dlt").append("<tr id=" + i + "><td><Button id='dltButton' onClick='delet(this)' class='btn btn-primary'>Delet</button> <Button class='btn btn-primary' data-toggle='modal' data-target='#editModal' id='editButton' onClick='edit(this)'>Edit</button></td></tr>");
             //$("#resultF").append("<tr><td>" + existingEntries[i].title + "</td><td>" + existingEntries[i].text + "</td><td>" + age + "</td></tr>");
         }
     }
     // click button to push the new entry to database
     $("#submit").click(function () {
         if ($(this).hasClass("edit")) {
+
             var d = $(this).attr("editid")
             var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-            existingEntries[d].title = $("#fname").val()
-            existingEntries[d].text = $("#lname").val()
-            existingEntries[d].Age = $("#Age").val()
-            existingEntries[d].gender = $("input:radio[name=gender]:checked").val()
+            existingEntries[d].title = $("#fname-m").val()
+            existingEntries[d].text = $("#lname-m").val()
+            existingEntries[d].Age = $("#Age-m").val()
+            existingEntries[d].gender = $("input:radio[name=gender-m]:checked").val()
             localStorage.setItem("allEntries", JSON.stringify(existingEntries));
             location.reload();
 
@@ -44,7 +45,7 @@ $(document).ready(function () {
                 "gender": sex
             };
 
-            //   localStorage.setItem("entry", JSON.stringify(entry));
+            localStorage.setItem("entry", JSON.stringify(entry));
             // Save allEntries back to local storage
             existingEntries.push(entry);
             localStorage.setItem("allEntries", JSON.stringify(existingEntries));
@@ -91,16 +92,18 @@ function delet(e) {
 };
 
 function edit(w) {
+$("#editModal")
     var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
     var place = $(w).parent().parent().attr("id");
-    $("#submit").addClass("edit")
-    $("#submit").attr("editid", place)
+console.log(place)
+    $("#submit-m").addClass("edit")
+    $("#submit-m").attr("editid", place)
     for (i = 0; i < existingEntries.length; i++) {
         if (place == i) {
-            var fname = $("#fname").val(existingEntries[i].title)
-            var lname = $("#lname").val(existingEntries[i].text)
-            var age = $("#Age").val(existingEntries[i].Age)
-            var sex = $("input:radio[name=gender]:checked").val(existingEntries[i].gender)
+            var fname = $("#fname-m").val(existingEntries[i].title)
+            var lname = $("#lname-m").val(existingEntries[i].text)
+            var age = $("#Age-m").val(existingEntries[i].Age)
+            var sex = $("input:radio[name=gender-m]:checked").val(existingEntries[i].gender)
         }
     }
 }
