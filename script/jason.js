@@ -34,12 +34,11 @@ $(document).ready(function () {
             "gender": sex
         };
 
-        //localStorage.setItem("entry", JSON.stringify(entry));
+
         // Save allEntries back to local storage
         existingEntries.push(entry);
         localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-        /* appending to table */
-        //    $("#resultF").append("<tr><td>'+ sNo +'</td><td>" + fname + "</td><td>" + lname + "</td><td>" + age + "</td></tr>");
+
         location.reload();
 
     });
@@ -66,6 +65,8 @@ $(document).ready(function () {
             easing: "easeOutExpo",
             delay: 1000
         });
+
+    /*Edit funcation*/
     $("#submit-m").click(function () {
         var d = $(this).attr("editid")
         var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
@@ -76,11 +77,12 @@ $(document).ready(function () {
         localStorage.setItem("allEntries", JSON.stringify(existingEntries));
         location.reload();
     });
+    /*Edit funcation end */
 
 
+}); //Document .ready closing 
 
-});
-
+/*delet the item on delt button click */
 function delet(e) {
     var existingEntries = JSON.parse(localStorage.getItem("allEntries")); //get data 
     var place = $(e).parent().parent().attr("id"); // getting index of item 
@@ -89,7 +91,7 @@ function delet(e) {
     location.reload(); // reload page 
 
 };
-
+/*Edit funcation start on click of edit button*/
 function edit(w) {
     $("#editModal")
     var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
@@ -105,3 +107,4 @@ function edit(w) {
         }
     }
 }
+/*Edit funcation*/
