@@ -25,40 +25,41 @@
     <div class="container content">
         <div class="row">
             <div class="col-md-6">
-                <form>
+                <form action="/action_page.php" class="was-validated">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-2 form-group">
                             <label for="fname">First Name</label>
                         </div>
                         <div class="col-sm-12 col-md-10">
-                            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+                            <input type="text" class="form-control" id="fname" name="firstname" placeholder="Your name.." required>
+
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-2 form-group">
                             <label for="lname">Last Name</label>
                         </div>
                         <div class="col-sm-12 col-md-10">
-                            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+                            <input type="text" class="form-control" id="lname" name="lastname" placeholder="Your last name.." required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-2 form-group">
                             <label for="Age">Age</label>
                         </div>
                         <div class="col-sm-12 col-md-10">
-                            <input type="text" id="Age" name="age" placeholder="Your Age please.." required>
+                            <input type="text" class="form-control" id="Age" name="age" placeholder="Your Age please.." required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-2 form-group">
                             <label for="Sex">Gender</label>
                         </div>
-                        <div class="col-sm-12 col-md-10">
-                            <input type="radio" id="male" name="gender" value="male">
-                            <label for="male">Male</label><br>
-                            <input type="radio" id="female" name="gender" value="female">
-                            <label for="female">Female</label><br>
+                        <div class="col-sm-12 col-md-10 form-check">
+                            <input type="radio" class="form-check-input" id="male" name="gender" value="male" required>
+                            <label class="form-check-label" for="male">Male</label><br>
+                            <input type="radio" class="form-check-input" id="female" name="gender" value="female" required>
+                            <label class="form-check-label" for="female">Female</label><br>
 
                         </div>
                     </div>
@@ -96,45 +97,45 @@
                     <div class="modal-body">
                         <form>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <label for="fname">First Name</label>
+                                <div class="col-md-2 form-group">
+                                    <label class="form-control-sm" for="fname">First Name</label>
                                 </div>
                                 <div class="col-sm-12 col-md-10">
-                                    <input type="text" id="fname-m" name="firstname" placeholder="Your name..">
+                                    <input type="text" class="form-control form-control-sm" id="fname-m" name="firstname" placeholder="Your name..">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <label for="lname">Last Name</label>
+                                <div class="col-md-2 form-group">
+                                    <label class="form-control-sm" for="lname">Last Name</label>
                                 </div>
                                 <div class="col-sm-12 col-md-10">
-                                    <input type="text" id="lname-m" name="lastname" placeholder="Your last name..">
+                                    <input type="text" class="form-control form-control-sm" id="lname-m" name="lastname" placeholder="Your last name..">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <label for="Age">Age</label>
+                                <div class="col-md-2 form-group">
+                                    <label class="form-control-sm" for="Age">Age</label>
                                 </div>
                                 <div class="col-sm-12 col-md-10">
-                                    <input type="text" id="Age-m" name="age" placeholder="Your Age please..">
+                                    <input type="text" class="form-control form-control-sm" id="Age-m" name="age" placeholder="Your Age please..">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <label for="Sex">Gender</label>
+                                <div class="col-md-2 form-group">
+                                    <label class="form-control-sm" for="Sex">Gender</label>
                                 </div>
-                                <div class="col-sm-12 col-md-10 ">
-                                    <input type="radio" id="male" name="gender-m" value="male">
-                                    <label for="male">Male</label><br>
-                                    <input type="radio" id="female" name="gender-m" value="female">
-                                    <label for="female">Female</label><br>
+                                <div class="col-sm-12 col-md-10 form-check">
+                                    <input type="radio" class="form-check-input" id="male" name="gender-m" value="male">
+                                    <label class="form-check-label orm-control-sm" for="male">Male</label><br>
+                                    <input type="radio" class="form-check-input" id="female" name="gender-m" value="female">
+                                    <label class="form-check-label orm-control-sm" for="female">Female</label><br>
 
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="button" id="submit-m" value="Save Chnages">
+                                    <input type="button" class="btn btn-success" id="submit-m" value="Save Chnages">
                                 </div>
                             </div>
                         </form>

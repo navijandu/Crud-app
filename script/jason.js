@@ -14,8 +14,8 @@ $(document).ready(function () {
             $("#age").append("<tr><td>" + existingEntries[i].Age + "</td></tr>");
             $("#gender").append("<tr><td>" + existingEntries[i].gender + "</td></tr>");
 
-            $("#dlt").append("<tr id=" + i + "><td><Button id='dltButton' onClick='delet(this)' class='btn btn-primary'>Delet</button> <Button class='btn btn-primary' data-toggle='modal' data-target='#editModal' id='editButton' onClick='edit(this)'>Edit</button></td></tr>");
-            //$("#resultF").append("<tr><td>" + existingEntries[i].title + "</td><td>" + existingEntries[i].text + "</td><td>" + age + "</td></tr>");
+            $("#dlt").append("<tr id=" + i + "><td><Button id='dltButton' onClick='delet(this)' class='btn btn-warning'>Delet</button> <Button class='btn btn-primary' data-toggle='modal' data-target='#editModal' id='editButton' onClick='edit(this)'>Edit</button></td></tr>");
+
         }
     }
     // click button to push the new entry to database
@@ -84,6 +84,7 @@ $(document).ready(function () {
 
 /*delet the item on delt button click */
 function delet(e) {
+    alert("Are You Sure you want to DELETE item ?")
     var existingEntries = JSON.parse(localStorage.getItem("allEntries")); //get data 
     var place = $(e).parent().parent().attr("id"); // getting index of item 
     existingEntries.splice(place, 1); //removing using splice 
