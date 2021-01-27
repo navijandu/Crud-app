@@ -5,15 +5,15 @@
 }
 
 body {
-    
+
     background-size: 400% 400%;
     font-weight: 600;
 
 }
 
 label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
+    padding: 8px 0px 0px 0px;
+
 }
 
 /*Top Text styling*/
@@ -22,18 +22,17 @@ label {
     font-size: 3.5em;
 }
 
-/*text area  styling Start*/
-
 /*Form Container styling */
 .content {
     border-radius: 5px;
-    background-color: #e8447821;
+    background-color: #4498e824;
     padding: 20px;
 
 }
 
-.dlt {
-    width=100%;
+.result {
+    width: 98%;
+    margin: 1% 1% 1% 1%;
 }
 
 @media screen and (max-width: 600px) {

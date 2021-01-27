@@ -18,12 +18,19 @@
 </head>
 
 <body>
+
+    <!--Heading row-->
     <div class="container-fluid text-center title">
         <h1 class="ml3">Hello Welcome to my World </h1>
     </div>
-
-    <div class="container content">
+    <!--  heading row end -->
+    <!--First  left col-->
+    <div class="container-fluid content">
         <div class="row">
+            <div class="col-md-2">
+                <h2>first </h2>
+            </div>
+            <!--  second center col-->
             <div class="col-md-6">
                 <form action="/action_page.php" class="was-validated">
                     <div class="row">
@@ -71,17 +78,16 @@
                     </div>
                 </form>
             </div>
-
+            <!--right side col-->
+            <div class="col-md-4">
+                <h4>3 rd col</h4>
+            </div>
         </div>
     </div>
 
-    <!--modal-->
+    <!--Modal Star-->
 
-    <div class="container">
-
-        <!-- Button to Open the Modal -->
-
-
+    <div class="container m1">
         <!-- The Modal -->
         <div class="modal" id="editModal">
             <div class="modal-dialog">
@@ -96,6 +102,7 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form>
+                            <!-- First Name col-->
                             <div class="row">
                                 <div class="col-md-2 form-group">
                                     <label class="form-control-sm" for="fname">First Name</label>
@@ -104,6 +111,7 @@
                                     <input type="text" class="form-control form-control-sm" id="fname-m" name="firstname" placeholder="Your name..">
                                 </div>
                             </div>
+                            <!--Last Name -->
                             <div class="row">
                                 <div class="col-md-2 form-group">
                                     <label class="form-control-sm" for="lname">Last Name</label>
@@ -112,6 +120,7 @@
                                     <input type="text" class="form-control form-control-sm" id="lname-m" name="lastname" placeholder="Your last name..">
                                 </div>
                             </div>
+                            <!--Age Colume-->
                             <div class="row">
                                 <div class="col-md-2 form-group">
                                     <label class="form-control-sm" for="Age">Age</label>
@@ -120,6 +129,7 @@
                                     <input type="text" class="form-control form-control-sm" id="Age-m" name="age" placeholder="Your Age please..">
                                 </div>
                             </div>
+                            <!-- gender colum-->
                             <div class="row">
                                 <div class="col-md-2 form-group">
                                     <label class="form-control-sm" for="Sex">Gender</label>
@@ -129,10 +139,9 @@
                                     <label class="form-check-label orm-control-sm" for="male">Male</label><br>
                                     <input type="radio" class="form-check-input" id="female" name="gender-m" value="female">
                                     <label class="form-check-label orm-control-sm" for="female">Female</label><br>
-
                                 </div>
                             </div>
-
+                            <!--Button modal for submit-->
                             <div class="row">
                                 <div class="col-md-12">
                                     <input type="button" class="btn btn-success" id="submit-m" value="Save Chnages">
@@ -141,11 +150,10 @@
                         </form>
                     </div>
 
-                    <!-- Modal footer -->
+                    <!-- Modal close footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -158,30 +166,32 @@
         <div class="row">
             <div class="col-md-12">
                 <table class="table">
-                    <tr>
-                        <th>Seril No.</th>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td id="sNo"></td>
-                        <td id="resultF">
-                        </td>
-                        <td id="resultL">
-                        </td>
-                        <td id="age">
-                        </td>
-                        <td id="gender"></td>
-                        <td id="dlt">
-                        </td>
-                    </tr>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Seril No.</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="sNo"></td>
+                            <td id="resultF">
+                            </td>
+                            <td id="resultL">
+                            </td>
+                            <td id="age">
+                            </td>
+                            <td id="gender"></td>
+                            <td id="dlt">
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-
 </body></html>
