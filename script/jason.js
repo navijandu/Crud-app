@@ -8,13 +8,8 @@ $(document).ready(function () {
         var showTable = existingEntries.length;
 
         for (i = 0; i < showTable; i++) {
-            $("#sNo").append("<tr><td>" + i + "</td></tr>");
-            $("#resultF").append("<tr><td>" + existingEntries[i].title + "</td></tr>");
-            $("#resultL").append("<tr><td>" + existingEntries[i].text + "</td></tr>");
-            $("#age").append("<tr><td>" + existingEntries[i].Age + "</td></tr>");
-            $("#gender").append("<tr><td>" + existingEntries[i].gender + "</td></tr>");
-
-            $("#dlt").append("<tr id=" + i + "><td><Button id='dltButton' onClick='delet(this)' class='btn btn-warning'>Delet</button> <Button class='btn btn-primary' data-toggle='modal' data-target='#editModal' id='editButton' onClick='edit(this)'>Edit</button></td></tr>");
+            /*Appending data to table */
+            $("tbody").append("<tr><td>" + i + "</td><td>" + existingEntries[i].title + "</td><td>" + existingEntries[i].text + "</td><td>" + existingEntries[i].Age + "</td><td>" + existingEntries[i].gender + "</td><td id=" + i + "><Button id='dltButton' onClick='delet(this)' class='btn btn-warning'>DELETE</button> <Button class='btn btn-primary' data-toggle='modal' data-target='#editModal' id='editButton' onClick='edit(this)'>EDIT INFO</button></td></tr>")
 
         }
     }

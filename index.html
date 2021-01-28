@@ -19,179 +19,178 @@
 
 <body>
 
-    <!--Heading row-->
-    <div class="container-fluid text-center title">
-        <h1 class="ml3">Hello Welcome to my World </h1>
-    </div>
-    <!--  heading row end -->
-    <!--First  left col-->
-    <div class="container-fluid content">
-        <div class="row">
-            <div class="col-md-2">
-                <h2>first </h2>
-            </div>
-            <!--  second center col-->
-            <div class="col-md-6">
-                <form action="/action_page.php" class="was-validated">
-                    <div class="row">
-                        <div class="col-md-2 form-group">
-                            <label for="fname">First Name</label>
-                        </div>
-                        <div class="col-sm-12 col-md-10">
-                            <input type="text" class="form-control" id="fname" name="firstname" placeholder="Your name.." required>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2 form-group">
-                            <label for="lname">Last Name</label>
-                        </div>
-                        <div class="col-sm-12 col-md-10">
-                            <input type="text" class="form-control" id="lname" name="lastname" placeholder="Your last name.." required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2 form-group">
-                            <label for="Age">Age</label>
-                        </div>
-                        <div class="col-sm-12 col-md-10">
-                            <input type="text" class="form-control" id="Age" name="age" placeholder="Your Age please.." required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2 form-group">
-                            <label for="Sex">Gender</label>
-                        </div>
-                        <div class="col-sm-12 col-md-10 form-check">
-                            <input type="radio" class="form-check-input" id="male" name="gender" value="male" required>
-                            <label class="form-check-label" for="male">Male</label><br>
-                            <input type="radio" class="form-check-input" id="female" name="gender" value="female" required>
-                            <label class="form-check-label" for="female">Female</label><br>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="button" class="btn btn-success" id="submit" value="Submit">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!--right side col-->
-            <div class="col-md-4">
-                <h4>3 rd col</h4>
-            </div>
+    <div class="container-fluid main">
+        <!--Heading row-->
+        <div class="container text-center title">
+            <h1 class="ml3">Registration Form </h1>
         </div>
-    </div>
+        <!--  heading row end -->
+        <!--  second center col-->
 
-    <!--Modal Star-->
+        <div class="container content">
+            <div class="row">
+                <div class="col-md-12" text:center>
+                    <p>Please fill out the registration form for Appointment</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="/action_page.php" class="was-validated">
+                        <div class="row">
+                            <div class="col-md-2 form-group">
+                                <label for="fname">First Name: </label>
+                            </div>
+                            <div class="col-sm-12 col-md-10">
+                                <input type="text" class="form-control" id="fname" name="firstname" placeholder="Your name.." required>
 
-    <div class="container m1">
-        <!-- The Modal -->
-        <div class="modal" id="editModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 form-group">
+                                <label for="lname">Last Name: </label>
+                            </div>
+                            <div class="col-sm-12 col-md-10">
+                                <input type="text" class="form-control" id="lname" name="lastname" placeholder="Your last name.." required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 form-group">
+                                <label for="Age">Age</label>
+                            </div>
+                            <div class="col-sm-12 col-md-10">
+                                <input type="text" class="form-control" id="Age" name="age" placeholder="Your Age please.." required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 form-group">
+                                <label for="Sex">Gender</label>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Edit Content</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form>
-                            <!-- First Name col-->
-                            <div class="row">
-                                <div class="col-md-2 form-group">
-                                    <label class="form-control-sm" for="fname">First Name</label>
-                                </div>
-                                <div class="col-sm-12 col-md-10">
-                                    <input type="text" class="form-control form-control-sm" id="fname-m" name="firstname" placeholder="Your name..">
+                                <div class="col-sm-12 col-md-10 form-check-inline">
+                                    <input type="radio" class="form-check-input" id="male" name="gender" value="male" required>
+                                    <label class="form-check-label" for="male">Male</label><br>
+                                    <input type="radio" class="form-check-input" id="female" name="gender" value="female" required>
+                                    <label class="form-check-label" for="female">Female</label><br>
                                 </div>
                             </div>
-                            <!--Last Name -->
-                            <div class="row">
-                                <div class="col-md-2 form-group">
-                                    <label class="form-control-sm" for="lname">Last Name</label>
-                                </div>
-                                <div class="col-sm-12 col-md-10">
-                                    <input type="text" class="form-control form-control-sm" id="lname-m" name="lastname" placeholder="Your last name..">
-                                </div>
-                            </div>
-                            <!--Age Colume-->
-                            <div class="row">
-                                <div class="col-md-2 form-group">
-                                    <label class="form-control-sm" for="Age">Age</label>
-                                </div>
-                                <div class="col-sm-12 col-md-10">
-                                    <input type="text" class="form-control form-control-sm" id="Age-m" name="age" placeholder="Your Age please..">
-                                </div>
-                            </div>
-                            <!-- gender colum-->
-                            <div class="row">
-                                <div class="col-md-2 form-group">
-                                    <label class="form-control-sm" for="Sex">Gender</label>
-                                </div>
-                                <div class="col-sm-12 col-md-10 form-check">
-                                    <input type="radio" class="form-check-input" id="male" name="gender-m" value="male">
-                                    <label class="form-check-label orm-control-sm" for="male">Male</label><br>
-                                    <input type="radio" class="form-check-input" id="female" name="gender-m" value="female">
-                                    <label class="form-check-label orm-control-sm" for="female">Female</label><br>
-                                </div>
-                            </div>
-                            <!--Button modal for submit-->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="button" class="btn btn-success" id="submit-m" value="Save Chnages">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                        </div>
 
-                    <!-- Modal close footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="button" class="btn btn-success" id="submit" value="Submit">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
 
-    </div>
+        <!--Modal Star-->
+
+        <div class="container m1">
+            <!-- The Modal -->
+            <div class="modal" id="editModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Edit Content</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form>
+                                <!-- First Name col-->
+                                <div class="row">
+                                    <div class="col-md-2 form-group">
+                                        <label class="form-control-sm" for="fname">First Name</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input type="text" class="form-control form-control-sm" id="fname-m" name="firstname" placeholder="Your name..">
+                                    </div>
+                                </div>
+                                <!--Last Name -->
+                                <div class="row">
+                                    <div class="col-md-2 form-group">
+                                        <label class="form-control-sm" for="lname">Last Name</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input type="text" class="form-control form-control-sm" id="lname-m" name="lastname" placeholder="Your last name..">
+                                    </div>
+                                </div>
+                                <!--Age Colume-->
+                                <div class="row">
+                                    <div class="col-md-2 form-group">
+                                        <label class="form-control-sm" for="Age">Age</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input type="text" class="form-control form-control-sm" id="Age-m" name="age" placeholder="Your Age please..">
+                                    </div>
+                                </div>
+                                <!-- gender colum-->
+                                <div class="row">
+                                    <div class="col-md-2 form-group">
+                                        <label class="form-control-sm" for="Sex">Gender</label>
+                                    </div>
+                                    <div class="col-sm-12 col-md-10 form-check">
+                                        <input type="radio" class="form-check-input" id="male" name="gender-m" value="male">
+                                        <label class="form-check-label orm-control-sm" for="male">Male </label><br>
+                                        <input type="radio" class="form-check-input" id="female" name="gender-m" value="female">
+                                        <label class="form-check-label orm-control-sm" for="female">Female </label><br>
+                                    </div>
+                                </div>
+                                <!--Button modal for submit-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="button" class="btn btn-success" id="submit-m" value="Save Chnages">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Modal close footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
 
-    <!--result-->
-    <div class="conatiner result">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Seril No.</th>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td id="sNo"></td>
-                            <td id="resultF">
-                            </td>
-                            <td id="resultL">
-                            </td>
-                            <td id="age">
-                            </td>
-                            <td id="gender"></td>
-                            <td id="dlt">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!--result-->
+        <div class="container result">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <p>Appointments Scedule</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Seril No.</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+        <!--Footer-->
+        <div class="container">
+            <div class="row footer">
+                <p>Created By: - Ashmeet Singh Jandu</p>
+
+            </div>
+        </div>
+
+
     </div>
 </body></html>

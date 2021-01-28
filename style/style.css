@@ -8,11 +8,8 @@ body {
 
     background-size: 400% 400%;
     font-weight: 600;
-
-}
-
-label {
-    padding: 8px 0px 0px 0px;
+    background-image: url('https://www.wallpapertip.com/wmimgs/69-691631_web-page-background-images-all-wallpapers-new-electric.jpg');
+    color: white;
 
 }
 
@@ -22,20 +19,119 @@ label {
     font-size: 3.5em;
 }
 
+label {
+    padding: 8px 0px 0px 0px;
+}
+
+p {
+    text-align: center;
+}
+
 /*Form Container styling */
 .content {
     border-radius: 5px;
-    background-color: #4498e824;
+    box-shadow: 2px 1px 9px -4px black;
     padding: 20px;
-
+    width: 65%;
+    margin-top: 2%;
 }
 
 .result {
     width: 98%;
-    margin: 1% 1% 1% 1%;
+    margin-top: 1%;
+    box-shadow: 2px 1px 9px -4px black;
+
 }
 
-@media screen and (max-width: 600px) {
-    .column {
-        width: 100%;
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+td,
+th {
+
+    text-align: center;
+    padding: 8px;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
     }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {}
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+
+        position: relative;
+        padding-left: 50%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        /*   width: 45%; */
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    /*
+	Label the data
+	*/
+    td:nth-of-type(1):before {
+        content: "S.NO : ";
+    }
+
+    td:nth-of-type(2):before {
+        content: "First Name:  ";
+    }
+
+    td:nth-of-type(3):before {
+        content: "Last Name: ";
+    }
+
+    td:nth-of-type(4):before {
+        content: "Age: ";
+    }
+
+    td:nth-of-type(5):before {
+        content: "Gender: ";
+    }
+
+    td:nth-of-type(6):before {
+        content: "";
+    }
+}
+
+.footer {
+    justify-content: center;
+    background-color: #656d7582;
+    margin-top: 1%;
+    opacity: 0.3;
+
+}
