@@ -28,13 +28,27 @@ $(document).ready(function () {
             "Age": age,
             "gender": sex
         };
+   var settings = {
+  "url": "https://ser91.herokuapp.com/j1",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify(entry),
+};
 
+$.ajax(settings).done(function (response) {
+	console.log(response)
+  if(response == "failed"){
+	  alert("please fill required feilds ")
+  }else{
+	  // Save allEntries back to local storage
+        existingEntries.push(response);
+       localStorage.setItem("allEntries", JSON.stringify(existingEntries));
 
-        // Save allEntries back to local storage
-        existingEntries.push(entry);
-        localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-
-        location.reload();
+       location.reload(); 
+  }
+});
 
     });
 
