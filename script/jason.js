@@ -1,120 +1,187 @@
-$(document).ready(function () {
+let serialNo = 1;
+let queueNo = 1001;
 
-    // Parse any JSON previously stored in allEntries
-    var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-    if (existingEntries == null) {
+const registrationForm = document.getElementById("registrationForm");
+const tableBody = document.getElementById("tableBody");
 
-    } else {
-        var showTable = existingEntries.length;
+registrationForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        for (i = 0; i < showTable; i++) {
-            /*Appending data to table */
-            $("tbody").append("<tr><td>" + i + "</td><td>" + existingEntries[i].title + "</td><td>" + existingEntries[i].text + "</td><td>" + existingEntries[i].Age + "</td><td>" + existingEntries[i].gender + "</td><td id=" + i + "><Button id='dltButton' onClick='delet(this)' class='btn btn-warning'>DELETE</button> <Button class='btn btn-primary' data-toggle='modal' data-target='#editModal' id='editButton' onClick='edit(this)'>EDIT INFO</button></td></tr>")
+    const firstName = document.getElementById("fname").value.trim();
+    const lastName = document.getElementById("lname").value.trim();
+    const ageInput = document.getElementById("age");
+    const age = parseInt(ageInput.value, 10);
+    const genderElement = document.querySelector('input[name="gender"]:checked');
 
-        }
+    if (!firstName) {
+        showErrorPopup("First name is required.");
+        document.getElementById("fname").focus();
+        return;
     }
-    // click button to push the new entry to database
-    $("#submit").click(function () {
 
-        if (existingEntries == null) existingEntries = [];
-        var fname = $("#fname").val()
-        var lname = $("#lname").val()
-        var age = $("#Age").val()
-        var sex = $("input:radio[name=gender]:checked").val()
+    if (!lastName) {
+        showErrorPopup("Last name is required.");
+        document.getElementById("lname").focus();
+        return;
+    }
 
-        var entry = {
-            "title": fname,
-            "text": lname,
-            "Age": age,
-            "gender": sex
-        };
-   var settings = {
-  "url": "https://ser91.herokuapp.com/j1",
-  "method": "POST",
-  "headers": {
-    "Content-Type": "application/json"
-  },
-  "data": JSON.stringify(entry),
-};
+    if (Number.isNaN(age)) {
+        showErrorPopup("Please enter a valid age.");
+        ageInput.focus();
+        return;
+    }
 
-$.ajax(settings).done(function (response) {
-	console.log(response)
-  if(response == "failed"){
-	  alert("please fill required feilds ")
-  }else{
-	  // Save allEntries back to local storage
-        existingEntries.push(response);
-       localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+    if (age < 1 || age > 150) {
+        showErrorPopup("Age must be between 1 and 150.");
+        ageInput.focus();
+        return;
+    }
 
-       location.reload(); 
-  }
+    if (!genderElement) {
+        showErrorPopup("Please select gender.");
+        return;
+    }
+
+    removeEmptyRow();
+
+    const currentQueueNo = queueNo;
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td></td>
+        <td><span class="queue-badge">Q-${currentQueueNo}</span></td>
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${age}</td>
+        <td>${genderElement.value}</td>
+        <td><span class="badge-status">Registered</span></td>
+        <td>
+            <button type="button" class="btn btn-danger btn-sm btn-delete delete-btn">
+                Delete
+            </button>
+        </td>
+    `;
+
+    row.setAttribute("data-queue", currentQueueNo);
+    tableBody.appendChild(row);
+
+    queueNo++;
+    registrationForm.reset();
+    updateSerialNumbers();
+
+    showSuccessPopup(currentQueueNo, firstName, lastName);
 });
 
-    });
+tableBody.addEventListener("click", function (e) {
+    if (e.target.classList.contains("delete-btn")) {
+        const row = e.target.closest("tr");
+        if (!row) return;
 
+        const queueValue = row.getAttribute("data-queue");
 
+        Swal.fire({
+            title: "Delete record?",
+            text: `Queue Number Q-${queueValue} will be removed.`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete",
+            cancelButtonText: "Cancel",
+            reverseButtons: true,
+            backdrop: true,
+            allowOutsideClick: false,
+            showClass: {
+                popup: "animate__animated animate__fadeInDown"
+            },
+            hideClass: {
+                popup: "animate__animated animate__fadeOutUp"
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                row.remove();
+                updateSerialNumbers();
+                showEmptyRowIfNeeded();
 
-    // Wrap every letter in a span
-    var textWrapper = document.querySelector('.ml3');
-    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-    anime.timeline({
-            loop: true
-        })
-        .add({
-            targets: '.ml3 .letter',
-            opacity: [0, 1],
-            easing: "easeInOutQuad",
-            duration: 2250,
-            delay: (el, i) => 150 * (i + 1)
-        }).add({
-            targets: '.ml3',
-            opacity: 0,
-            duration: 1000,
-            easing: "easeOutExpo",
-            delay: 1000
+                Swal.fire({
+                    icon: "success",
+                    title: "Deleted",
+                    text: `Queue Number Q-${queueValue} has been removed.`,
+                    timer: 1800,
+                    showConfirmButton: false,
+                    showClass: {
+                        popup: "animate__animated animate__zoomIn"
+                    },
+                    hideClass: {
+                        popup: "animate__animated animate__zoomOut"
+                    }
+                });
+            }
         });
+    }
+});
 
-    /*Edit funcation*/
-    $("#submit-m").click(function () {
-        var d = $(this).attr("editid")
-        var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-        existingEntries[d].title = $("#fname-m").val()
-        existingEntries[d].text = $("#lname-m").val()
-        existingEntries[d].Age = $("#Age-m").val()
-        existingEntries[d].gender = $("input:radio[name=gender-m]:checked").val()
-        localStorage.setItem("allEntries", JSON.stringify(existingEntries));
-        location.reload();
+function updateSerialNumbers() {
+    const rows = tableBody.querySelectorAll("tr:not(#emptyRow)");
+    serialNo = 1;
+
+    rows.forEach((row) => {
+        row.cells[0].textContent = serialNo++;
     });
-    /*Edit funcation end */
+}
 
-
-}); //Document .ready closing 
-
-/*delet the item on delt button click */
-function delet(e) {
-    alert("Are You Sure you want to DELETE item ?")
-    var existingEntries = JSON.parse(localStorage.getItem("allEntries")); //get data 
-    var place = $(e).parent().parent().attr("id"); // getting index of item 
-    existingEntries.splice(place, 1); //removing using splice 
-    localStorage.setItem("allEntries", JSON.stringify(existingEntries)); //storing back to local storage 
-    location.reload(); // reload page 
-
-};
-/*Edit funcation start on click of edit button*/
-function edit(w) {
-    $("#editModal")
-    var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
-    var place = $(w).parent().parent().attr("id");
-    $("#submit-m").addClass("edit")
-    $("#submit-m").attr("editid", place)
-    for (i = 0; i < existingEntries.length; i++) {
-        if (place == i) {
-            var fname = $("#fname-m").val(existingEntries[i].title)
-            var lname = $("#lname-m").val(existingEntries[i].text)
-            var age = $("#Age-m").val(existingEntries[i].Age)
-            var sex = $("input:radio[name=gender-m]:checked").val(existingEntries[i].gender)
-        }
+function removeEmptyRow() {
+    const emptyRow = document.getElementById("emptyRow");
+    if (emptyRow) {
+        emptyRow.remove();
     }
 }
-/*Edit funcation*/
+
+function showEmptyRowIfNeeded() {
+    const rows = tableBody.querySelectorAll("tr:not(#emptyRow)");
+    if (rows.length === 0) {
+        const emptyRow = document.createElement("tr");
+        emptyRow.id = "emptyRow";
+        emptyRow.innerHTML = `
+            <td colspan="8" class="empty-state">No registrations yet.</td>
+        `;
+        tableBody.appendChild(emptyRow);
+    }
+}
+
+function showSuccessPopup(queueNumber, firstName, lastName) {
+    Swal.fire({
+        icon: "success",
+        title: "Added to Queue",
+        html: `
+            <strong>${firstName} ${lastName}</strong><br>
+            You have been added to the queue.<br><br>
+            <span style="font-size: 1.1rem; font-weight: 700; color: #2563eb;">
+                Queue Number: Q-${queueNumber}
+            </span>
+        `,
+        confirmButtonText: "OK",
+        allowOutsideClick: false,
+        showClass: {
+            popup: "animate__animated animate__bounceIn"
+        },
+        hideClass: {
+            popup: "animate__animated animate__fadeOut"
+        }
+    });
+}
+
+function showErrorPopup(message) {
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: message,
+        confirmButtonText: "Try Again",
+        allowOutsideClick: false,
+        showClass: {
+            popup: "animate__animated animate__shakeX"
+        },
+        hideClass: {
+            popup: "animate__animated animate__fadeOut"
+        }
+    });
+}
