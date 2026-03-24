@@ -1,136 +1,150 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-* {
-    box-sizing: border-box;
-}
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #edf4ff, #dbeafe);
+    min-height: 100vh;
+    color: #1f2937;
+}
 
-    background-size: 400% 400%;
+.main {
+    max-width: 1200px;
+}
+
+.page-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd, #1e40af);
+    color: #ffffff;
+    padding: 40px 20px;
+}
+
+.hero-section h1 {
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.hero-section p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+.content-section {
+    padding: 30px;
+}
+
+.section-heading h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 22px;
+    color: #111827;
+}
+
+.form-control {
+    min-height: 46px;
+    border-radius: 12px;
+    border: 1px solid #ced4da;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 0.15rem rgba(37, 99, 235, 0.15);
+}
+
+.gender-group {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-height: 46px;
+}
+
+.btn-custom {
+    min-width: 150px;
+    border-radius: 12px;
+    padding: 10px 20px;
     font-weight: 600;
-    background-image: url('https://www.wallpapertip.com/wmimgs/69-691631_web-page-background-images-all-wallpapers-new-electric.jpg');
-    color: white;
-
 }
 
-/*Top Text styling*/
-.ml3 {
-    font-weight: 900;
-    font-size: 3.5em;
-}
-
-label {
-    padding: 8px 0px 0px 0px;
-}
-
-p {
-    text-align: center;
-}
-
-/*Form Container styling */
-.content {
-    border-radius: 5px;
-    box-shadow: 2px 1px 9px -4px black;
+.table-box {
+    background: #f8fafc;
     padding: 20px;
-    width: 65%;
-    margin-top: 2%;
+    border-radius: 16px;
 }
 
-.result {
-    width: 98%;
-    margin-top: 1%;
-    box-shadow: 2px 1px 9px -4px black;
-
+.table thead th {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-
+.table tbody td {
+    vertical-align: middle;
+    background: #ffffff;
 }
 
-td,
-th {
+.badge-status {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
 
+.queue-badge {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.btn-delete {
+    border-radius: 10px;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+}
+
+.empty-state {
     text-align: center;
-    padding: 8px;
+    color: #6b7280;
+    padding: 22px !important;
+    font-size: 0.95rem;
+    background: #ffffff;
 }
 
-@media only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px) {
-
-    /* Force table to not be like tables anymore */
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
-
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    tr {}
-
-    td {
-        /* Behave  like a "row" */
-        border: none;
-
-        position: relative;
-        padding-left: 50%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-    }
-
-    td:before {
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 6px;
-        /*   width: 45%; */
-        padding-right: 10px;
-        white-space: nowrap;
-    }
-
-    /*
-	Label the data
-	*/
-    td:nth-of-type(1):before {
-        content: "S.NO : ";
-    }
-
-    td:nth-of-type(2):before {
-        content: "First Name:  ";
-    }
-
-    td:nth-of-type(3):before {
-        content: "Last Name: ";
-    }
-
-    td:nth-of-type(4):before {
-        content: "Age: ";
-    }
-
-    td:nth-of-type(5):before {
-        content: "Gender: ";
-    }
-
-    td:nth-of-type(6):before {
-        content: "";
-    }
+.footer-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #4b5563;
+    font-weight: 600;
 }
-.footer {
-    justify-content: center;
-    background-color: #656d7582;
-    margin-top: 1%;
-    opacity: 0.3;
 
+@media (max-width: 767px) {
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .gender-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-top: 8px;
+    }
 }
