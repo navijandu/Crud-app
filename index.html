@@ -1,198 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Quize Game </title>
-    <meta charset="utf-8">
-    <!--Add jquery/ JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <!--Add Bootstrap-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Registration</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!--Link the files -->
     <link rel="stylesheet" href="style/style.css">
-    <script src="script/jason.js"></script>
+<link rel="stylesheet" href="main.js">
+    
 </head>
-
 <body>
-
-    <div class="container-fluid main">
-        <!--Heading row-->
-        <div class="container text-center title">
-            <h1 class="ml3">Registration Form </h1>
-        </div>
-        <!--  heading row end -->
-        <!--  second center col-->
-
-        <div class="container content">
-            <div class="row">
-                <div class="col-md-12" text:center>
-                    <p>Please fill out the registration form for Appointment</p>
-                </div>
+    <div class="container main py-5">
+        <div class="page-card">
+            <div class="hero-section text-center">
+                <h1>Appointment Registration</h1>
+                <p>Please fill out the form below to join the appointment queue.</p>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form method="post" action="/contact" class="was-validated">
-                        <div class="row">
-                            <div class="col-md-2 form-group">
-                                <label for="fname">First Name: </label>
-                            </div>
-                            <div class="col-sm-12 col-md-10">
-                                <input type="text" class="form-control" id="fname" name="firstname" placeholder="Your name.." required>
 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 form-group">
-                                <label for="lname">Last Name: </label>
-                            </div>
-                            <div class="col-sm-12 col-md-10">
-                                <input type="text" class="form-control" id="lname" name="lastname" placeholder="Your last name.." required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 form-group">
-                                <label for="Age">Age</label>
-                            </div>
-                            <div class="col-sm-12 col-md-10">
-                                <input type="text" class="form-control" id="Age" name="age" placeholder="Your Age please.." required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 form-group">
-                                <label for="Sex">Gender</label>
-
-                                <div class="col-sm-12 col-md-10 form-check-inline">
-                                    <input type="radio" class="form-check-input" id="male" name="gender" value="male" required>
-                                    <label class="form-check-label" for="male">Male</label><br>
-                                    <input type="radio" class="form-check-input" id="female" name="gender" value="female" required>
-                                    <label class="form-check-label" for="female">Female</label><br>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input type="button" class="btn btn-success" id="submit" value="Submit">
-                            </div>
-                        </div>
-                    </form>
+            <div class="content-section">
+                <div class="section-heading">
+                    <h3>Registration Form</h3>
                 </div>
-            </div>
-        </div>
 
-        <!--Modal Star-->
-
-        <div class="container m1">
-            <!-- The Modal -->
-            <div class="modal" id="editModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Edit Content</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <form>
-                                <!-- First Name col-->
-                                <div class="row">
-                                    <div class="col-md-2 form-group">
-                                        <label class="form-control-sm" for="fname">First Name</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-10">
-                                        <input type="text" class="form-control form-control-sm" id="fname-m" name="firstname" placeholder="Your name..">
-                                    </div>
-                                </div>
-                                <!--Last Name -->
-                                <div class="row">
-                                    <div class="col-md-2 form-group">
-                                        <label class="form-control-sm" for="lname">Last Name</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-10">
-                                        <input type="text" class="form-control form-control-sm" id="lname-m" name="lastname" placeholder="Your last name..">
-                                    </div>
-                                </div>
-                                <!--Age Colume-->
-                                <div class="row">
-                                    <div class="col-md-2 form-group">
-                                        <label class="form-control-sm" for="Age">Age</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-10">
-                                        <input type="text" class="form-control form-control-sm" id="Age-m" name="age" placeholder="Your Age please..">
-                                    </div>
-                                </div>
-                                <!-- gender colum-->
-                                <div class="row">
-                                    <div class="col-md-2 form-group">
-                                        <label class="form-control-sm" for="Sex">Gender</label>
-                                    </div>
-                                    <div class="col-sm-12 col-md-10 form-check">
-                                        <input type="radio" class="form-check-input" id="male" name="gender-m" value="male">
-                                        <label class="form-check-label orm-control-sm" for="male">Male </label><br>
-                                        <input type="radio" class="form-check-input" id="female" name="gender-m" value="female">
-                                        <label class="form-check-label orm-control-sm" for="female">Female </label><br>
-                                    </div>
-                                </div>
-                                <!--Button modal for submit-->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input type="button" class="btn btn-success" id="submit-m" value="Save Chnages">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Modal close footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <form id="registrationForm" novalidate>
+                    <div class="form-group row">
+                        <label for="fname" class="col-md-2 col-form-label">First Name</label>
+                        <div class="col-md-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="fname"
+                                name="firstname"
+                                placeholder="Enter first name"
+                                required
+                            >
                         </div>
                     </div>
-                </div>
+
+                    <div class="form-group row">
+                        <label for="lname" class="col-md-2 col-form-label">Last Name</label>
+                        <div class="col-md-10">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="lname"
+                                name="lastname"
+                                placeholder="Enter last name"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="age" class="col-md-2 col-form-label">Age</label>
+                        <div class="col-md-10">
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="age"
+                                name="age"
+                                placeholder="Enter age"
+                                min="1"
+                                max="150"
+                                required
+                            >
+                            <small class="form-text text-muted">Age must be between 1 and 150.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Gender</label>
+                        <div class="col-md-10">
+                            <div class="gender-group">
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="male"
+                                        name="gender"
+                                        value="Male"
+                                        required
+                                    >
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="female"
+                                        name="gender"
+                                        value="Female"
+                                        required
+                                    >
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary btn-custom">
+                            Add to Queue
+                        </button>
+                    </div>
+                </form>
             </div>
 
-        </div>
+            <div class="content-section pt-0">
+                <div class="section-heading">
+                    <h3>Appointment Queue</h3>
+                </div>
 
-
-        <!--result-->
-        <div class="container result">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <p>Appointments Scedule</p>
+                <div class="table-box">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-bordered table-hover mb-0">
                             <thead>
                                 <tr>
-                                    <th>Seril No.</th>
-                                    <th>Firstname</th>
-                                    <th>Lastname</th>
+                                    <th>Serial No.</th>
+                                    <th>Queue No.</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
                                     <th>Age</th>
                                     <th>Gender</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-
+                            <tbody id="tableBody">
+                                <tr id="emptyRow">
+                                    <td colspan="8" class="empty-state">No registrations yet.</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
+
+                <div class="footer-text">
+                    Created By: Ashmeet Singh Jandu
+                </div>
             </div>
         </div>
-        <!--Footer-->
-        <div class="container">
-            <div class="row footer">
-                <p>Created By: - Ashmeet Singh Jandu</p>
-
-            </div>
-        </div>
-
-
     </div>
-</body></html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="script/app.js"></script>
+    
+</body>
+</html>
